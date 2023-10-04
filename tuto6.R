@@ -72,7 +72,6 @@ shapiro.test(residuals(ratmod))
 #we do not reject H0, the residuals are normal
 
 plot(fitted(ratmod),residuals(ratmod),xlab = "Fitted", ylab = "Residuals")
-![ratmod_fitted](https://github.com/ninazuhairi/sm4337/assets/127283289/82eeaca3-9759-420a-8949-a6c8bdbc62f1)
 
 qqmath(~resid(ratmod)|treat)
 
