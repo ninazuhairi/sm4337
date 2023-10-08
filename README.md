@@ -1,5 +1,9 @@
 Applied Stats
 
+## Tuto 4
+
+![pima_pairs](https://github.com/ninazuhairi/sm4337/assets/127283289/6eba79ae-3f18-4052-9cb7-abc413de3493)
+
 ## Tuto 6
 
 ratmod_fitted
