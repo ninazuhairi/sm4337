@@ -1,6 +1,7 @@
 Applied Stats
 
 Tuto 6
+
 ratmod_fitted
 ![ratmod_fitted](https://github.com/ninazuhairi/sm4337/assets/127283289/f2c78f12-af7b-4d29-ad49-7d2b29c5fd08)
 
