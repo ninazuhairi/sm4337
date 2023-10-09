@@ -22,10 +22,10 @@ summary(ratmod)
 #-1.83136 -0.54991  0.04003  0.58230  2.03660 
 
 #Random effects:
-#  Groups   Name        Variance Std.Dev. Corr 
-#subject  (Intercept) 32.49    5.700         
-#weeks       14.14    3.760    -0.13
-#Residual             18.90    4.348         
+# Groups   Name        Variance Std.Dev. Corr 
+# subject  (Intercept) 32.49    5.700         
+#          weeks       14.14    3.760    -0.13
+# Residual             18.90    4.348         
 #Number of obs: 135, groups:  subject, 27
 
 #Fixed effects:
@@ -38,7 +38,7 @@ summary(ratmod)
 #weeks:treatthyroxine    0.6629     1.9730   0.336
 
 #Correlation of Fixed Effects:
-#  (Intr) weeks  trtthr trtthy wks:trtthr
+#            (Intr) weeks  trtthr trtthy wks:trtthr
 #weeks       -0.250                                
 #treatthircl -0.707  0.177                         
 #treatthyrxn -0.642  0.160  0.454                  
