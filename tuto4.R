@@ -57,11 +57,11 @@ ilogit(eta0)
 #this implies that the predicted probability that the women is positive for diabetes with 
 #the predictor variables specified is about 4.57%
 
-pred<-predict(mod,newdata=data.frame(pregnant=1,glucose=99,diastolic=64,triceps=22,insulin=76,
-                                     bmi=27,diabetes=0.25,age=25),se=T)
+pred<-predict(mod,newdata = data.frame(pregnant = 1, glucose = 99, diastolic = 64, triceps = 22,
+                                       insulin = 76, bmi = 27, diabetes = 0.25, age = 25),se=T)
 pred
-ilogit(c(pred$fit-1.96*pred$se.fit,pred$fit+1.96*pred$se.fit))
-#95% C.I.=(2.50%,8.21%)
+ilogit(c(pred$fit-1.96*pred$se.fit, pred$fit+1.96*pred$se.fit))
+#95% C.I. = (2.50%, 8.21%)
 
 #Q2
 data(wbca)
@@ -91,36 +91,46 @@ summary(mod2)
 
 #Coefficients:
 #            Estimate Std. Error z value Pr(>|z|)    
-#(Intercept)  11.16678    1.41491   7.892 2.97e-15 ***
-# Adhes       -0.39681    0.13384  -2.965  0.00303 ** 
-  BNucl       -0.41478    0.10230  -4.055 5.02e-05 ***
-  Chrom       -0.56456    0.18728  -3.014  0.00257 ** 
-  Epith       -0.06440    0.16595  -0.388  0.69795    
-Mitos       -0.65713    0.36764  -1.787  0.07387 .  
-NNucl       -0.28659    0.12620  -2.271  0.02315 *  
-  Thick       -0.62675    0.15890  -3.944 8.01e-05 ***
-  UShap       -0.28011    0.25235  -1.110  0.26699    
-USize        0.05718    0.23271   0.246  0.80589    
----
-  Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+#(Intercept) 11.16678    1.41491   7.892 2.97e-15 ***
+#Adhes       -0.39681    0.13384  -2.965  0.00303 ** 
+#BNucl       -0.41478    0.10230  -4.055 5.02e-05 ***
+#Chrom       -0.56456    0.18728  -3.014  0.00257 ** 
+#Epith       -0.06440    0.16595  -0.388  0.69795    
+#Mitos       -0.65713    0.36764  -1.787  0.07387 .  
+#NNucl       -0.28659    0.12620  -2.271  0.02315 *  
+#Thick       -0.62675    0.15890  -3.944 8.01e-05 ***
+#UShap       -0.28011    0.25235  -1.110  0.26699    
+#USize        0.05718    0.23271   0.246  0.80589    
 
-(Dispersion parameter for binomial family taken to be 1)
+#Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-Null deviance: 881.388  on 680  degrees of freedom
-Residual deviance:  89.464  on 671  degrees of freedom
-AIC: 109.46
+#(Dispersion parameter for binomial family taken to be 1)
 
-Number of Fisher Scoring iterations: 8
+#Null deviance: 881.388  on 680  degrees of freedom
+#Residual deviance:  89.464  on 671  degrees of freedom
+#AIC: 109.46
+
+#Number of Fisher Scoring iterations: 8
 
 mod3<-glm(cbind(Class,1-Class)~Adhes+BNucl+Chrom+Mitos+NNucl+Thick+UShap,binomial,wbca)
 mod3
 
-Coefficients:
-  (Intercept)        Adhes        BNucl        Chrom        Mitos        NNucl  
-11.0333      -0.3984      -0.4192      -0.5679      -0.6456      -0.2915  
-Thick        UShap  
--0.6216      -0.2541  
+#Coefficients:
+#(Intercept)    Adhes        BNucl        Chrom        Mitos        NNucl  
+#11.0333        -0.3984      -0.4192      -0.5679      -0.6456      -0.2915  
+#Thick          UShap  
+#-0.6216        -0.2541  
 
-Degrees of Freedom: 680 Total (i.e. Null);  673 Residual
-Null Deviance:	    881.4 
-Residual Deviance: 89.66 	AIC: 105.7
+#Degrees of Freedom: 680 Total (i.e. Null);  673 Residual
+#Null Deviance:	    881.4 
+#Residual Deviance: 89.66 	AIC: 105.7
+
+x2<-c(1,1,1,3,1,1,4,1)
+eta0<-sum(x2*coef(mod3))
+ilogit(eta0)
+#[1] 0.9921115
+
+pred<-predict(mod3,newdata = data.frame(Adhes = 1, BNucl = 1, Chrom = 3, Mitos = 1, NNucl = 1,
+                                        Thick = 4, UShap = 1),se=T)
+ilogit(c(pred$fit-1.96*pred$se.fit, pred$fit+1.96*pred$se.fit))
+#95% C.I. = (0.9757467, 0.9974629)
