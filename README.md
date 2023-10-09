@@ -6,6 +6,9 @@ Applied Stats
 
 ## Tuto 6
 
+xyplot_treat
+![xyplot_treat](https://github.com/ninazuhairi/sm4337/assets/127283289/e0dec1e4-470b-41cd-9ec7-7166a44120e4)
+
 ratmod_fitted
 ![ratmod_fitted](https://github.com/ninazuhairi/sm4337/assets/127283289/f2c78f12-af7b-4d29-ad49-7d2b29c5fd08)
 
